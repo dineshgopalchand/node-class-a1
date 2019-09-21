@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
 
     if (url == '/') {
         res.statusCode = 200;
-        res.write(`
+        res.write(` 
 <!DOCTYPE html>
 <html lang="en">
 <head>
