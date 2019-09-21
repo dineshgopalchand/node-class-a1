@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
             let postedData = '';
             req.on('data', (chunk) => {
                 body.push(chunk);
-                console.log(chunk);
+                console.log('asdf', chunk);
             });
             return req.on('end', () => {
                 postedData = Buffer.concat(body).toString();
@@ -54,6 +54,7 @@ const server = http.createServer((req, res) => {
         res.write('<body>');
         res.write('<form method="post">');
         res.write('<input type="text" name="name"/>');
+        // res.write('<input type="file" name="file"/>');
         res.write('<input type="submit" value="submit"/>');
         res.write('</form>');
         res.write('</body>');
