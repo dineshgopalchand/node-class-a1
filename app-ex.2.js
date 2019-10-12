@@ -3,10 +3,8 @@ var app = express();
 var path = require('path');
 var bodyParse = require('body-parser');
 var port = 3334;
-var adminRoute = require('./admin.route');
 
 var host = '127.0.0.1';
-app.use('/admin', adminRoute);
 
 var encodeBody = bodyParse.urlencoded({ extended: false });
 
@@ -17,12 +15,6 @@ app.get('/contact', (req, res, next) => {
     res.sendFile(path.join(__dirname, 'view', 'contact.html'));
     console.log(contact);
 });
-// app.get('/admin', (req, res, next) => {
-//     res.sendFile(path.join(__dirname, 'view', 'admin', 'admin.html'));
-// });
-// app.get('/admin/users', (req, res, next) => {
-//     res.sendFile(path.join(__dirname, 'view', 'admin', 'users.html'));
-// });
 
 app.post('/contact', encodeBody, (req, res, next) => {
     console.log('req.body', req.body);
